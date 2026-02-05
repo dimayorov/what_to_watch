@@ -6,3 +6,6 @@ db.session.add(opinion_1)
 db.session.add(opinion_2)
 db.session.add(opinion_3)
 db.session.commit()
+result = Opinion.query.all()
+for opinion in result:
+ opinion.text
