@@ -9,6 +9,15 @@
         <!-- Добавляем тег form и указываем, 
         что отправлять форму надо методом POST, а валидировать в браузере не надо -->
         <form method="POST" novalidate>
+          <p class="py-3 mb-3">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+          </p>
           {{ form.csrf_token }}
           {{ form.title(class="form-control form-control-lg py-3 mb-3", placeholder=form.title.label.text) }}
           {% if form.title.errors %}
